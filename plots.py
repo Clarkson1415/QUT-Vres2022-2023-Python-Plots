@@ -17,8 +17,9 @@ def f(s, t):
 
 t = np.linspace(0,20) # x axis
 
-y0 = 0 # initial condition, can be a vector, i.e. if 2 equations dmdt and dsdt and 2 initial conditions y0 = [m0, s0]
-# imma need to solve for C first then, i can just plot and dont need this and can have just the plot no solving.
+initial_conditions = [??, ??] # initial condition, can be a vector, i.e. if 2 equations dmdt and dsdt and 2 initial conditions y0 = [m0, s0]
+# imma need to solve for C first then
+
 
 s = odeint(f, M0, t) #integrate f over between s0 and t
 
