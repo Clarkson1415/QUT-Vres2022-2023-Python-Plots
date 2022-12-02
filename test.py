@@ -7,4 +7,4 @@ s0 = [20,5]
 
 print(s0)
 t = np.linspace(0,20)
-print(t)
+print(10/5)
