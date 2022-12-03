@@ -14,14 +14,14 @@ M0 = np.linspace(0, 2)
 
 dmdt = (Lambda*M0) - ((Lambda*M0*M0)/K) - (O*M0*T)
 dmdt_plot = plt.plot(M0, dmdt, 'r-')
+plt.show()
 
 # M plot of solution
 t = np.linspace(0,20)
 c = 5
 M = (O*T-Lambda*K)/(Lambda*(np.exp((t+c)*(O*T-Lambda*K)/K)-1))
 M_plot = plt.plot(t, M, 'b')
+plt.show()
 
 # M plot of solution ODE int solver python to check
 
-
-plt.show()
