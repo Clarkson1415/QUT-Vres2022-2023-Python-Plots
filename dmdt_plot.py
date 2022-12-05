@@ -13,7 +13,9 @@ for T in range(10): # for = 0, 1, 2
     dmdt = (Lambda * M) - ((Lambda * M * M) / K) - (O * M * T)
     plt.plot(M, dmdt, label=f'T={T}')
     plt.legend()
-    plt.title('dMdt')
+    plt.title(r'$\frac{dM}{dt} = \lambda M(1-\frac{M}{K}) - \o{}MT$')
+    plt.xlabel('M')
+    plt.ylabel('dMdt')
 plt.show()
 
 # M = solution plot
@@ -25,10 +27,7 @@ def dMdt(M, t):
     return dMdt
 
 
-# initial condition
-# M0 = 1
-
-# x axis time
+# x axis = time
 t = np.linspace(0,2)
 
 # solve ode
@@ -41,6 +40,8 @@ for T in range(5):
     plt.plot(t, M, label=f'T={T},M0={M0}')
     plt.legend()
     plt.title('M(t)')
+    plt.xlabel("t")
+    plt.ylabel("M(t)")
 plt.show()
 
 for M0 in range(5):
@@ -49,6 +50,7 @@ for M0 in range(5):
     plt.plot(t, M, label=f'T={T},M0={M0}')
     plt.legend()
     plt.title('M(t)')
+    plt.xlabel('t')
 plt.show()
 
 
@@ -57,4 +59,6 @@ M = odeint(dMdt, M0, t)
 plt.plot(t, M, label=f'T={T}')
 plt.legend()
 plt.title('M(t)')
+plt.xlabel('t')
 plt.show()
+

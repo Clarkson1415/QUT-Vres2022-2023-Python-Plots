@@ -3,21 +3,15 @@ from scipy.integrate import odeint
 import matplotlib.pyplot as plt
 import math
 
-
-# M plot checking my algebraic solution
-# currently wrong though v sad
-K = 1
-O = 1
-Lambda = 1.4
-
 t = np.linspace(0,5)
 
 M_0 = 1
-# plot T = 0
 
-for T in range(2): # for T = 0, 1, 2
-    c = K * math.log((O * T - K / (Lambda * M_0)) + 1) / (O * T - Lambda * K)
-    M = (O*T-Lambda*K)/(Lambda*(np.exp((t+c)*(O*T-Lambda*K)/K)-1))
-    plt.plot(t, M, label=f'T={T}')
-    plt.legend()
-plt.show()
+T = 1
+K = 1
+O = 1
+Lambda = 1.4
+c = (math.log(abs(1 - (K + (K*O*T)/M_0)) / (Lambda - O*T)))
+M = (K + K*O*T)/(1 - math.exp((t+c)*(Lambda - O*T)))
+plt.plot(t, M)
+plt.title('M')
