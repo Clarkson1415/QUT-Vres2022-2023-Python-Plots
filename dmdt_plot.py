@@ -9,7 +9,7 @@ T = 0
 Lambda = 1.4
 
 M = np.linspace(0, 1)
-for T in range(10): # for = 0, 1, 2
+for T in range(10):
     dmdt = (Lambda * M) - ((Lambda * M * M) / K) - (O * M * T)
     plt.plot(M, dmdt, label=f'T={T}')
     plt.legend()
@@ -30,10 +30,6 @@ def dMdt(M, t):
 # x axis = time
 t = np.linspace(0,2)
 
-# solve ode
-#M = odeint(dMdt, M0, t)
-
-# plot
 for T in range(5):
     M0 = 1
     M = odeint(dMdt, M0, t)
