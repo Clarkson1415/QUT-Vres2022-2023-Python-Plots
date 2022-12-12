@@ -40,3 +40,19 @@ for T0 in range(5): # for diff inital conditions of T cells
     plt.xlabel("'t', time")
     plt.ylabel('T-Cells')
 plt.show()
+
+#The sol vs my sol
+T0 = 1
+delta = 1
+gamma_M = 1
+k = 1
+M = 1
+
+T = odeint(dTdt, T0, t)
+plt.plot(t, T, label=f'M={M},T0={T0}')
+my_sol = np.exp(t+1)
+plt.legend()
+plt.title('T(t) = T-cells over time')
+plt.xlabel("'t', time")
+plt.ylabel('T-Cells')
+plt.show()
