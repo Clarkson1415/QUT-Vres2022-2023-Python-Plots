@@ -49,8 +49,9 @@ for M0 in range(5):
     plt.xlabel('t')
 plt.show()
 
-
-T=100
+# solution
+M0 = 0
+T = 100
 M = odeint(dMdt, M0, t)
 plt.plot(t, M, label=f'T={T}')
 plt.legend()
