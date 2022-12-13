@@ -23,10 +23,6 @@ plt.show()
 # plot of sol
 
 def dTdt(T, t):
-    k = 1
-    M = 1
-    gamma_M = 1
-    delta = 1
     dTdt = (k*M*T)/(M+gamma_M) - delta*T
     return dTdt
 

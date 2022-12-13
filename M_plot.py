@@ -1,19 +1,19 @@
 import numpy as np
 from scipy.integrate import odeint
 import matplotlib.pyplot as plt
-import math
 
+M0 = 2
 K = 1
-phi = 1.1
+Lambda = 1
+phi = 1
 T = 0
-Lambda = 2
-
-
 # M = solution plot
 def dMdt(M, t):
+    M0 = 2
     K = 1
+    Lambda = 1
     phi = 1
-    Lambda = 2
+    T = 0
     dMdt = (Lambda * M) - ((Lambda * M * M) / K) - (phi * M * T)
     return dMdt
 
@@ -21,32 +21,15 @@ def dMdt(M, t):
 # x axis = time
 t = np.linspace(0,2)
 
-for T in range(5):
-    M0 = 1
-    M = odeint(dMdt, M0, t)
-    plt.plot(t, M, label=f'T={T},M0={M0}')
-    plt.legend()
-    plt.title('M(t)')
-    plt.xlabel("t")
-    plt.ylabel("M(t)")
-plt.show()
-
-for M0 in range(5):
-    T = 1
-    M = odeint(dMdt, M0, t)
-    My_sol = (K*phi*T/Lambda + K) / -2 + math.sqrt((-K*phi*T / Lambda - K) ^ 2 + 4*math.exp(t + c)(Lambda - T*phi)) / -2
-    plt.plot(t, M, label=f'T={T},M0={M0}')
-    plt.plot(t, My_sol, label='mine')
-    plt.legend()
-    plt.title('M(t)')
-    plt.xlabel('t')
-plt.show()
-
 # solution
-M0 = 1
-T = 100
+
+
+c = 1/Lambda * np.log(M0/(Lambda*(M0-K)))
+My_sol = (K*(Lambda - T*phi)*np.exp((Lambda*(t+c)))) / (Lambda*np.exp((Lambda*(t+c))) - np.exp((T*phi*(t+c))))
+
 M = odeint(dMdt, M0, t)
-plt.plot(t, M, label=f'T={T}')
+plt.plot(t, M, label=f'sol ode', linewidth=6)
+plt.plot(t, My_sol, label=r"$M(t)=\frac{K(\lambda - T\phi)e^{\lambda(t+c)}}{\lambda e^{\lambda(t+c)} - e^{T\phi(t+c)}}$")
 plt.legend()
 plt.title('M(t)')
 plt.xlabel('t')

@@ -9,7 +9,7 @@ T = 0
 Lambda = 2
 
 M = np.linspace(0, 1)
-for T in range(2):
+for T in range(5):
     dmdt = (Lambda * M) - ((Lambda * M * M) / K) - (phi * M * T)
     plt.plot(M, dmdt, label=f'T={T}')
     #show that max pos roots has T < lambda/phi
