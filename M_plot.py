@@ -2,18 +2,13 @@ import numpy as np
 from scipy.integrate import odeint
 import matplotlib.pyplot as plt
 
-M0 = 2
-K = 1
+M0 = 1
+K = 2
 Lambda = 1
 phi = 1
-T = 0
+T = 1
 # M = solution plot
 def dMdt(M, t):
-    M0 = 2
-    K = 1
-    Lambda = 1
-    phi = 1
-    T = 0
     dMdt = (Lambda * M) - ((Lambda * M * M) / K) - (phi * M * T)
     return dMdt
 
@@ -23,8 +18,7 @@ t = np.linspace(0,2)
 
 # solution
 
-
-c = 1/Lambda * np.log(M0/(Lambda*(M0-K)))
+c = 1/Lambda * np.log(abs(M0/(Lambda*(M0-K))))
 My_sol = (K*(Lambda - T*phi)*np.exp((Lambda*(t+c)))) / (Lambda*np.exp((Lambda*(t+c))) - np.exp((T*phi*(t+c))))
 
 M = odeint(dMdt, M0, t)
