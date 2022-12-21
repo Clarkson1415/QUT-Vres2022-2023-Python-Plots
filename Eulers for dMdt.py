@@ -2,7 +2,7 @@ import numpy as np
 from scipy.integrate import odeint
 import matplotlib.pyplot as plt
 
-M0 = 2
+M0 = 2  # M(0) = 2
 K = 1
 Lambda = 1
 phi = 1
@@ -14,9 +14,9 @@ def dMdt(M, t):
 
 tlist = []
 Mlist = []
-h = 0.1 # step size
+h = 0.1  # step size
 t0 = 0
-for i in range(20):
+for i in range(40):
     tlist.append(t0)
     Mlist.append(M0)
     # calc next
