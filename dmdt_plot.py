@@ -5,7 +5,6 @@ import math
 
 K = 1
 phi = 1.1
-T = 0
 Lambda = 2
 
 M = np.linspace(0, 1)
