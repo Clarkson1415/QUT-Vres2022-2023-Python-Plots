@@ -30,4 +30,3 @@ plt.legend()
 plt.title('M(t)')
 plt.xlabel('t')
 plt.show()
-
