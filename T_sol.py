@@ -2,7 +2,7 @@ import numpy as np
 from scipy.integrate import odeint
 import matplotlib.pyplot as plt
 import math
-
+import Eulers
 
 # plot of sol
 k = 3
@@ -29,4 +29,6 @@ plt.legend()
 plt.title('T(t) = T-cells over time')
 plt.xlabel("'t', time")
 plt.ylabel('T-Cells')
+# Eulers
+Eulers.euler(dTdt, 0, 1, 2, 10)
 plt.show()
