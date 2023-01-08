@@ -10,12 +10,10 @@ M = 1
 gamma_M = 1
 delta = 1
 
-T = np.linspace(0,20)
+t = np.linspace(0,20)
 def dTdt(T, t):
     dTdt = (k*M*T)/(M+gamma_M) - delta*T
     return dTdt
-
-t = np.linspace(0,2)
 
 # The sol vs my sol matches on top
 T0 = 1
@@ -30,5 +28,5 @@ plt.title('T(t) = T-cells over time')
 plt.xlabel("'t', time")
 plt.ylabel('T-Cells')
 # Eulers
-Eulers.euler(dTdt, 0, 1, 2, 10)
+Eulers.euler(dTdt, 0, T0, 20, 10)
 plt.show()

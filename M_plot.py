@@ -9,7 +9,7 @@ Lambda = 2
 phi = 1
 T = 1
 # M = solution plot
-def dMdt(M, t):
+def dMdt(t, M):
     dMdt = (Lambda*M*(1-(M/K))) - (phi*M*T)
     return dMdt
 
@@ -22,9 +22,9 @@ the_solution = (K*(Lambda - T*phi)*np.exp(Lambda*(t+c_1)))/(-np.exp(T*phi*(t+c_1
 c2 = np.log(np.abs(M0 / (K*Lambda - M0*Lambda - K*T*phi))) / (Lambda-T*phi)
 mysol = (np.exp((t+c2)*(Lambda-T*phi))*(Lambda-T*phi)*(K*(Lambda-T*phi)))/(1+Lambda*np.exp((t+c2)*(Lambda-T*phi)))
 
-M = odeint(dMdt, M0, t)
+M = odeint(dMdt, y0=M0, t=t)
 plt.plot(t, M, label=f'sol ode', linewidth=6)
 plt.plot(t, the_solution, label=r"the_solution")
-plt.plot(t, mysol, label=r"mysol")
-Eulers.euler(dMdt, 0,1,2,100)
+#plt.plot(t, mysol, label=r"mysol")
+Eulers.euler(dMdt, 0, 1, 1, 50)
 plt.show()
