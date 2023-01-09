@@ -28,5 +28,5 @@ plt.title('T(t) = T-cells over time')
 plt.xlabel("'t', time")
 plt.ylabel('T-Cells')
 # Eulers
-Eulers.euler(dTdt, 0, T0, 20, 10)
+Eulers.euler(dTdt, 0, T0, 20, 50)
 plt.show()
