@@ -9,7 +9,7 @@ Lambda = 2
 phi = 1
 T = 1
 # M = solution plot
-def dMdt(t, M):
+def dMdt(M, t):
     dMdt = (Lambda*M*(1-(M/K))) - (phi*M*T)
     return dMdt
 

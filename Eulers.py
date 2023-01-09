@@ -8,7 +8,7 @@ def euler(func, x0, y0, xn, n):
     h = (xn-x0)/n
 
     for i in range(n):
-        slope = func(x0, y0) #functions (M, t) or (T, t)
+        slope = func(y0, x0) #functions (M, t) or (T, t)
         yn = y0 + h * slope
         x_array.append(x0)
         y_array.append(y0)
