@@ -5,7 +5,7 @@ import Eulers
 
 M0 = 1
 K = 1
-Lambda = 2
+Lambda = 0.5
 phi = 1
 T = 1
 # M = solution plot
