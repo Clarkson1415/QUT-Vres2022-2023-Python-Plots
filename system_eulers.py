@@ -13,7 +13,7 @@ def eulers_approx_both():
     delta = 1
 
     #Euler sol for M(t) over t using both equations
-    h = 0.1
+    h = 0.01
     tf = 10
     t = np.arange(0, tf+0.01, h) #start, stop, step
     n = len(t)
@@ -37,8 +37,6 @@ def eulers_approx_both():
     #plt.plot(t, algebraic_solution, label=r"$\frac{e^{(t+c1)(\lambda-T \phi))}(\lambda-T*phi)(K (\lambda-T*\phi))}{1+\lambda e^{(t+c1) (\lambda- T \phi)}}$")
     plt.legend()
     plt.title('')
-    return
 
-eulers_approx_both()
-plt.show()
+
 

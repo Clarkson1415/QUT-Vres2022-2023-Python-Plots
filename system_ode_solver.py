@@ -1,8 +1,9 @@
+
 import numpy as np
 from scipy.integrate import odeint
 import matplotlib.pyplot as plt
 
-def ode_solve():
+def ode_solve_plot():
     # solve with ODE solver
     def odes(x, t):
         # constants
@@ -42,7 +43,5 @@ def ode_solve():
     plt.plot(t, T, label='T(t) ode solver')
     plt.legend()
 
-ode_solve()
-plt.show()
 
 

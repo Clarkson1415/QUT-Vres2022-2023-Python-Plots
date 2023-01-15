@@ -3,7 +3,7 @@ from scipy.integrate import odeint
 import matplotlib.pyplot as plt
 import Eulers
 
-def Mt_sol():
+def M_plot():
 
     M0 = 1
     K = 1
@@ -38,9 +38,45 @@ def Mt_sol():
 
 
     M = odeint(dMdt, y0=M0, t=t)
-    plt.plot(t, M, label=f'ODE solver', linewidth=6)
+    plt.plot(t, M, label=f'M(t) ODE solver, T={T}', linewidth=6)
     #plt.plot(t, the_solution, label=r"$M = \frac{K(\lambda - T \phi)e^{\lambda(t+c_1)}} {-e^{T\phi(tc_1)} + \lambda e^{\lambda(t+c_1)}}$")
-    plt.plot(t, Mt, label='Eulers')
-    plt.legend(fontsize=20)
+    plt.plot(t, Mt, label=f'M(t) Eulers T={T}')
+    plt.legend()
+
+def M_plot_diff_Ts():
+    M0 = 1
+    K = 1
+    Lambda = 0
+    phi = 1
+
+    def dMdt(M, t):
+        dMdt = (Lambda * M * (1 - (M / K))) - (phi * M * T)
+        return dMdt
+
+    for T in range(0, 3):
+        h = 0.1
+        tf = 10
+        t = np.arange(0, tf + h, h)
+        M = odeint(dMdt, y0=M0, t=t)
+        plt.plot(t, M, label=f'M(t) ODE solver, T={T}', linewidth=3)
+    Lambda = 1
+    phi = 1
+    T = Lambda/phi
+    M = odeint(dMdt, y0=M0, t=t)
+    plt.plot(t, M, label=f'M(t) ODE solver, T={Lambda}/{phi}')
+
+    Lambda = 50*phi
+    M = odeint(dMdt, y0=M0, t=t)
+    plt.plot(t, M, label=f'M(t) ODE solver, T={Lambda}/{phi}')
+
+    Lambda = 1
+    phi = Lambda*50
+    M = odeint(dMdt, y0=M0, t=t)
+    plt.plot(t, M, label=f'M(t) ODE solver, T={Lambda}/{phi}')
+    plt.title("M(t)")
+    plt.xlabel("M(t)")
+    plt.ylabel("t")
+    plt.legend()
     plt.show()
 
+M_plot_diff_Ts()
