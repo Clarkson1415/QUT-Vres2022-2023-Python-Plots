@@ -36,7 +36,7 @@ my_sol = np.exp((t+c)*((k*M/(M+gamma_M)) - delta))
 
 T = odeint(dTdt, T0, t)
 plt.plot(t, T, label=f'T=ODE solver', linewidth=6)
-#plt.plot(t, my_sol, label=r"$T=e^{(t+c)(\frac{kM}{M+\gamma_M} - \delta)}$")
+plt.plot(t, my_sol, label=r"$T=e^{(t+c)(\frac{kM}{M+\gamma_M} - \delta)}$")
 plt.plot(t, Tt, label='Eulers')
 plt.title('T(t) = T-cells over time')
 plt.xlabel("'t', time")
