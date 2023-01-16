@@ -7,7 +7,7 @@ def M_plot():
 
     M0 = 1
     K = 1
-    Lambda = 0
+    Lambda = 1
     phi = 1
     T = 1
     # M = solution plot
@@ -46,7 +46,7 @@ def M_plot():
 def M_plot_diff_Ts():
     M0 = 1
     K = 1
-    Lambda = 0
+    Lambda = 1
     phi = 1
 
     def dMdt(M, t):

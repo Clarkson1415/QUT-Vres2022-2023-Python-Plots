@@ -9,11 +9,11 @@ def ode_solve_plot():
         # constants
         M0 = 1
         K = 1
-        Lambda = 0
-        phi = 1
-        k = 1
+        Lambda = 0.1
+        phi = 0.5
+        k = 1.5 #rho later
         M = 1
-        gamma_M = 1
+        gamma_M = 0.01
         delta = 1
 
         # assign each ode to a vector element
@@ -31,7 +31,7 @@ def ode_solve_plot():
     # print(odes(x=x0, t=0))
 
     # declare time vector time window
-    t = np.linspace(0, 10, 1000)
+    t = np.linspace(0, 100, 1000)
     x = odeint(odes, x0, t)
 
     # the results of the solved odes
@@ -45,3 +45,5 @@ def ode_solve_plot():
 
 
 
+ode_solve_plot()
+plt.show()

@@ -5,7 +5,7 @@ import matplotlib.pyplot as plt
 def eulers_approx_both():
     M0 = 1
     K = 1
-    Lambda = 0
+    Lambda = 1
     phi = 1
     k = 1
     M = 1
@@ -39,4 +39,5 @@ def eulers_approx_both():
     plt.title('')
 
 
-
+eulers_approx_both()
+plt.show()
