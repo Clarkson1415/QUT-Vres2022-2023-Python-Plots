@@ -2,20 +2,24 @@ import numpy as np
 from scipy.integrate import odeint
 import matplotlib.pyplot as plt
 
-def eulers_approx_both():
-    M0 = 1
-    K = 1
-    Lambda = 1
-    phi = 1
-    k = 1
-    M = 1
-    gamma_M = 1
-    delta = 1
+M0 = 1
+T0 = 1
+K = 1
+Lambda = 0.1
+phi = 0.5
+k = 1.5  # rho later
+M = 1
+gamma_M = 0.01
+delta = 1
+h = 0.01 # stepsize
+tf = 10 # final
+t = np.arange(0, tf+h, h) #start, stop, step
+
+
+def eulers_approx_both(M0, T0, K, Lambda, phi, k, M, gamma_M, delta, t, tf, h):
 
     #Euler sol for M(t) over t using both equations
-    h = 0.01
-    tf = 10
-    t = np.arange(0, tf+0.01, h) #start, stop, step
+
     n = len(t)
 
     Mt = np.ones(n)
@@ -39,5 +43,5 @@ def eulers_approx_both():
     plt.title('')
 
 
-eulers_approx_both()
-plt.show()
+# eulers_approx_both(M0, T0, K, Lambda, phi, k, M, gamma_M, delta)
+# plt.show()

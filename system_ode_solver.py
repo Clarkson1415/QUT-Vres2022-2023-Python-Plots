@@ -3,35 +3,41 @@ import numpy as np
 from scipy.integrate import odeint
 import matplotlib.pyplot as plt
 
-def ode_solve_plot():
+#constants
+M0 = 1
+T0 = 1
+K = 1
+Lambda = 0.1
+phi = 0.5
+k = 1.5  # rho later
+
+gamma_M = 0.01
+delta = 1
+h = 0.01
+tf = 100
+t = np.arange(0, tf+h, h)
+
+def ode_solve_plot(M0, T0, K, Lambda, phi, k, gamma_M, delta, t, tf, h):
+
     # solve with ODE solver
     def odes(x, t):
-        # constants
-        M0 = 1
-        K = 1
-        Lambda = 0.1
-        phi = 0.5
-        k = 1.5 #rho later
-        M = 1
-        gamma_M = 0.01
-        delta = 1
 
         # assign each ode to a vector element
         M = x[0]
         T = x[1]
 
         # define ode
-        dMdt =  (Lambda * M) - ((Lambda * M * M) / K) - (phi * M * T)
+        dMdt = (Lambda * M) - ((Lambda * M * M) / K) - (phi * M * T)
         dTdt = (k*M*T)/(M+gamma_M) - delta*T
         return [dMdt, dTdt]
 
     # initial conditions
-    x0 = [1, 1] # [M(0) = 1, T(0) = 1] if they are 0 then the plot is flat
+    x0 = [M0, T0]  # [M(0) = 1, T(0) = 1] if they are 0 then the plot is flat
 
     # print(odes(x=x0, t=0))
 
     # declare time vector time window
-    t = np.linspace(0, 100, 1000)
+
     x = odeint(odes, x0, t)
 
     # the results of the solved odes
@@ -42,8 +48,8 @@ def ode_solve_plot():
     plt.plot(t, M, label='M(t) ode solver')
     plt.plot(t, T, label='T(t) ode solver')
     plt.legend()
+    return M, T
 
 
-
-ode_solve_plot()
-plt.show()
+# ode_solve_plot(M0, T0, K, Lambda, phi, k, M, gamma_M, delta, t, tf, h)
+# plt.show()
