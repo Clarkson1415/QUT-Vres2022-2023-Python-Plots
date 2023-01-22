@@ -50,12 +50,13 @@ def what_case(M, T):
 #     plt.show()
 #     print(f"phi = {phi}, rho = {rho}, case: {case}")
 
-rho_values = np.arange(0, 2, 1)
-phi_values = np.arange(0, 2, 1)
+rho_values = np.arange(0, 2, 0.1)
+phi_values = np.arange(0, 2, 0.1)
 
 for rho in rho_values:
-    M, T = system_ode_solver.ode_solve_plot(M0, T0, K, Lambda, phi, rho, gamma_M, delta, t, tf, h)
-    case_colour = what_case(M, T)
-    plt.scatter(rho, phi, c=case_colour)
+    for phi in phi_values:
+        M, T = system_ode_solver.ode_solve_plot(M0, T0, K, Lambda, phi, rho, gamma_M, delta, t, tf, h)
+        case_colour = what_case(M, T)
+        plt.scatter(rho, phi, c=case_colour)
 plt.show()
 
