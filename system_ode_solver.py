@@ -3,19 +3,6 @@ import numpy as np
 from scipy.integrate import odeint
 import matplotlib.pyplot as plt
 
-#constants
-M0 = 1
-T0 = 1
-K = 1
-Lambda = 0.1
-phi = 0.5
-k = 1.5  # rho later
-
-gamma_M = 0.01
-delta = 1
-h = 0.01
-tf = 100
-t = np.arange(0, tf+h, h)
 
 def ode_solve_plot(M0, T0, K, Lambda, phi, k, gamma_M, delta, t, tf, h):
 
@@ -37,7 +24,6 @@ def ode_solve_plot(M0, T0, K, Lambda, phi, k, gamma_M, delta, t, tf, h):
     # print(odes(x=x0, t=0))
 
     # declare time vector time window
-
     x = odeint(odes, x0, t)
 
     # the results of the solved odes
@@ -45,9 +31,9 @@ def ode_solve_plot(M0, T0, K, Lambda, phi, k, gamma_M, delta, t, tf, h):
     T = x[:, 1]
 
     # plot
-    plt.plot(t, M, label='M(t) ode solver')
-    plt.plot(t, T, label='T(t) ode solver')
-    plt.legend()
+    #plt.plot(t, M, label='M(t) ode solver')
+    #plt.plot(t, T, label='T(t) ode solver')
+    #plt.legend()
     return M, T
 
 
