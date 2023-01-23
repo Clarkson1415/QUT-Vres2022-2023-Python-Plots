@@ -7,14 +7,14 @@ M0 = 1
 K = 1
 Lambda = 1
 phi = 1
-rho = 1  # k, rho later
 
-gamma_M = 0.01
+rho = 1  # k, rho later
+gamma_M = 1
 delta = 1
 T0 = 1
 
 h = 0.001 # stepsize
-tf = 1000 # final
+tf = 500 # final
 t = np.arange(0, tf+h, h) #start, stop, step
 
 
@@ -23,12 +23,11 @@ t = np.arange(0, tf+h, h) #start, stop, step
 # 2 mild M-> non 0 < K, T - > non zero >= 0
 # 3 severe disease M->0
 # check 3 first, then 2, the else its 1
-# also cases when its oscillating
 
 
 def what_case(M, T):
     error = 0.01
-    if M[-1] == 0:
+    if (0-error < M[-1] < 0+error):
         print("3 severe")
         print(M[-1], T[-1])
         return "red"
@@ -50,13 +49,17 @@ def what_case(M, T):
 #     plt.show()
 #     print(f"phi = {phi}, rho = {rho}, case: {case}")
 
-rho_values = np.arange(0, 2, 0.1)
-phi_values = np.arange(0, 2, 0.1)
+values = np.arange(0, 10, 1)
 
-for rho in rho_values:
-    for phi in phi_values:
-        M, T = system_ode_solver.ode_solve_plot(M0, T0, K, Lambda, phi, rho, gamma_M, delta, t, tf, h)
+for rho in values:
+    for phi in values:
+        M, T = system_ode_solver.ode_solve(M0, T0, K, Lambda, phi, rho, gamma_M, delta, t, tf, h)
         case_colour = what_case(M, T)
+        #print(f"rho {rho}, phi {phi}, M = {M[-1]}, T={T[-1]}, K = {K}")
         plt.scatter(rho, phi, c=case_colour)
-plt.show()
+        #plt.show()
 
+
+plt.xlabel(r"$\rho$")
+plt.ylabel(r"$\phi$")
+plt.show()
