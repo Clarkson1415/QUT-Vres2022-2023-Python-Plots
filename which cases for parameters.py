@@ -51,15 +51,39 @@ def what_case(M, T):
 
 values = np.arange(0, 10, 1)
 
-for rho in values:
-    for phi in values:
-        M, T = system_ode_solver.ode_solve(M0, T0, K, Lambda, phi, rho, gamma_M, delta, t, tf, h)
-        case_colour = what_case(M, T)
-        #print(f"rho {rho}, phi {phi}, M = {M[-1]}, T={T[-1]}, K = {K}")
-        plt.scatter(rho, phi, c=case_colour)
-        #plt.show()
+def rho_phi(values):
+    for rho in values:
+        for phi in values:
+            M, T = system_ode_solver.ode_solve(M0, T0, K, Lambda, phi, rho, gamma_M, delta, t, tf, h)
+            case_colour = what_case(M, T)
+            #print(f"rho {rho}, phi {phi}, M = {M[-1]}, T={T[-1]}, K = {K}")
+            plt.scatter(rho, phi, c=case_colour)
+            #plt.show()
+    plt.xlabel(r"$\rho$")
+    plt.ylabel(r"$\phi$")
+    plt.show()
 
+def K_Lambda(values):
+    for K in values:
+        for Lambda in values:
+            M, T = system_ode_solver.ode_solve(M0, T0, K, Lambda, phi, rho, gamma_M, delta, t, tf, h)
+            case_colour = what_case(M, T)
+            #print(f"rho {rho}, phi {phi}, M = {M[-1]}, T={T[-1]}, K = {K}")
+            plt.scatter(K, Lambda, c=case_colour)
+            #plt.show()
+    plt.xlabel(r"$\K")
+    plt.ylabel(r"$\Lambda")
+    plt.show()
 
-plt.xlabel(r"$\rho$")
-plt.ylabel(r"$\phi$")
-plt.show()
+def K_phi(values):
+    for K in values:
+        for phi in values:
+            M, T = system_ode_solver.ode_solve(M0, T0, K, Lambda, phi, rho, gamma_M, delta, t, tf, h)
+            case_colour = what_case(M, T)
+            #print(f"rho {rho}, phi {phi}, M = {M[-1]}, T={T[-1]}, K = {K}")
+            plt.scatter(K, phi, c=case_colour)
+            #plt.show()
+    plt.xlabel(r"$K$")
+    plt.ylabel(r"$phi$")
+    plt.show()
+
