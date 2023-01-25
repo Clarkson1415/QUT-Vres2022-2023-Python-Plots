@@ -4,7 +4,7 @@ from scipy.integrate import odeint
 import matplotlib.pyplot as plt
 
 
-def ode_solve_plot(M0, T0, K, Lambda, phi, k, gamma_M, delta, t, tf, h):
+def ode_solve_plot(M0, T0, K, Lambda, phi, k, gamma_M, delta, t):
 
     # solve with ODE solver
     def odes(x, t):
@@ -40,7 +40,7 @@ def ode_solve_plot(M0, T0, K, Lambda, phi, k, gamma_M, delta, t, tf, h):
 # ode_solve_plot(M0, T0, K, Lambda, phi, k, M, gamma_M, delta, t, tf, h)
 # plt.show()
 
-def ode_solve(M0, T0, K, Lambda, phi, k, gamma_M, delta, t, tf, h):
+def ode_solve(M0, T0, K, Lambda, phi, k, gamma_M, delta, t):
 
     # solve with ODE solver
     def odes(x, t):
