@@ -16,7 +16,7 @@ tf = 10 # final
 t = np.arange(0, tf+h, h) #start, stop, step
 
 
-def eulers_approx_both(M0, T0, K, Lambda, phi, k, M, gamma_M, delta, t, tf, h):
+def eulers_approx_both(M0, T0, K, Lambda, phi, k, M, gamma_M, delta, t, h):
 
     #Euler sol for M(t) over t using both equations
 
