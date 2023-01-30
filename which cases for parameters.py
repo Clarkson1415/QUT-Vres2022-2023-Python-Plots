@@ -2,7 +2,7 @@ import system_ode_solver
 import numpy as np
 import matplotlib.pyplot as plt
 
-# Parameters
+#Parameters
 M0 = 1
 K = 1
 Lambda = 1
@@ -87,5 +87,29 @@ def K_phi(values):
     plt.ylabel(r"$phi$")
     plt.show()
 
+# enter 2 parameters and values to test
+# def change_params(param1, param2, values):
+#     M0 = 1
+#     K = 1
+#     Lambda = 1
+#     phi = 1
+#     rho = 1  # k, rho later
+#     gamma_M = 1
+#     delta = 1
+#     T0 = 1
+#     for param1 in values:
+#         for param2 in values:
+#             M, T = system_ode_solver.ode_solve(M0, T0, K, Lambda, phi, rho, gamma_M, delta, t)
+#             case_colour = what_case(M, T)
+#             #print(f"rho {rho}, phi {phi}, M = {M[-1]}, T={T[-1]}, K = {K}")
+#             plt.scatter(K, phi, c=case_colour)
+#             #plt.show()
+#     plt.xlabel(r"$K$")
+#     plt.ylabel(r"$phi$")
+#     plt.show()
+
+
 rho_phi(values)
+K_Lambda(values)
+K_phi(values)
 
