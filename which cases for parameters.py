@@ -24,20 +24,19 @@ t = np.arange(0, tf+h, h) #start, stop, step
 # 3 severe disease M->0
 # check 3 first, then 2, the else its 1
 
-
 def what_case(M, T):
     error = 0.01
     if (0-error < M[-1] < 0+error):
-        print("3 severe")
-        print(M[-1], T[-1])
+        #print("3 severe")
+        #print(M[-1], T[-1])
         return "red"
     elif (K-error < M[-1] < K+error) & (0-error < T[-1] < 0+error):
-        print(f"1 disease free")
-        print(M[-1], T[-1])
+        #print(f"1 disease free")
+        #print(M[-1], T[-1])
         return "green"
     else:
-        print("2 mild")
-        print(M[-1], T[-1])
+        #print("2 mild")
+        #print(M[-1], T[-1])
         return "blue"
 
 
@@ -49,11 +48,11 @@ def what_case(M, T):
 #     plt.show()
 #     print(f"phi = {phi}, rho = {rho}, case: {case}")
 
-values = np.arange(0, 10, 1)
+values = np.arange(0, 60, 1) # start, stop, step 0 to 50 -> 0 to 5 in steps of 0.1
 
 def rho_phi(values):
-    for rho in values:
-        for phi in values:
+    for rho in 0.1*values:
+        for phi in 0.1*values:
             M, T = system_ode_solver.ode_solve(M0, T0, K, Lambda, phi, rho, gamma_M, delta, t)
             case_colour = what_case(M, T)
             #print(f"rho {rho}, phi {phi}, M = {M[-1]}, T={T[-1]}, K = {K}")
@@ -110,6 +109,3 @@ def K_phi(values):
 
 
 rho_phi(values)
-K_Lambda(values)
-K_phi(values)
-

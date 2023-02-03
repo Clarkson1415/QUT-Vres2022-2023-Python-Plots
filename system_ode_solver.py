@@ -31,8 +31,8 @@ def ode_solve_plot(M0, T0, K, Lambda, phi, k, gamma_M, delta, t):
     T = x[:, 1]
 
     # plot
-    plt.plot(t, M, label='M(t) ode solver')
-    plt.plot(t, T, label='T(t) ode solver')
+    plt.plot(t, M, label='M(t)')
+    plt.plot(t, T, label='T(t)')
     plt.legend()
     return M, T
 
